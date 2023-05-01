@@ -1,19 +1,43 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Todos from './components/Todos';
 import { Todo } from './types/Todo';
+import { v4 as uuidv4 } from 'uuid';
+import Footer from './components/Footer';
 
 const App = () => {
+  const [userId, setUserId] = useState<number>(1);
   const initTodos: Todo[] = [
-    { id: '1', userId: 1, title: 'Complete task 1', completed: false },
-    { id: '2', userId: 1, title: 'Complete task 2', completed: true },
-    { id: '3', userId: 1, title: 'Complete task 3', completed: false },
+    {
+      id: uuidv4(),
+      userId: userId,
+      title: 'Brew morning coffee',
+      completed: false,
+    },
+    { id: uuidv4(), userId: userId, title: 'Feed cat & dog', completed: false },
+    { id: uuidv4(), userId: userId, title: 'Start coding', completed: false },
   ];
-
   const [todos, setTodos] = useState(initTodos);
-  const [userId, setUserId] = useState(1);
+  const [completedCount, setCompletedCount] = useState<number>(0); // state variable for completed task count
+
   return (
     <div className='App'>
-      <Todos todos={todos} setTodos={setTodos} userId={userId} />
+      <div className='main-content'>
+        <span className='header'>
+          <h1>To Do It</h1>
+          <h2>
+            Completed: <span>{completedCount}</span>
+          </h2>
+        </span>
+
+        <Todos
+          todos={todos}
+          setTodos={setTodos}
+          userId={userId}
+          completedCount={completedCount}
+          setCompletedCount={setCompletedCount}
+        />
+      </div>
+      <Footer />
     </div>
   );
 };

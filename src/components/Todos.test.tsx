@@ -9,14 +9,20 @@ fdescribe('Todos component', () => {
     { id: '3', userId: 1, title: 'Test Todo 3', completed: false },
   ];
   const mockSetTodos = jest.fn();
+  const mockSetCompltedCount = jest.fn();
 
   it('should render the component with initial state', () => {
-    const { getByText, getByPlaceholderText } = render(
-      <Todos userId={1} todos={mockTodos} setTodos={mockSetTodos} />
+    const { getByText } = render(
+      <Todos
+        userId={1}
+        todos={mockTodos}
+        setTodos={mockSetTodos}
+        completedCount={1}
+        setCompletedCount={mockSetCompltedCount}
+      />
     );
 
     expect(getByText('New Todo:')).toBeInTheDocument();
-    expect(getByPlaceholderText('Enter a new todo...')).toBeInTheDocument();
     expect(getByText('Add')).toBeInTheDocument();
     expect(getByText('Test Todo 1')).toBeInTheDocument();
     expect(getByText('Test Todo 2')).toBeInTheDocument();
@@ -25,7 +31,13 @@ fdescribe('Todos component', () => {
 
   it('should add a new todo on click of Add button', () => {
     const { getByText, getByPlaceholderText } = render(
-      <Todos userId={1} todos={mockTodos} setTodos={mockSetTodos} />
+      <Todos
+        userId={1}
+        todos={mockTodos}
+        setTodos={mockSetTodos}
+        completedCount={1}
+        setCompletedCount={mockSetCompltedCount}
+      />
     );
 
     fireEvent.change(getByPlaceholderText('Enter a new todo...'), {
@@ -48,7 +60,13 @@ fdescribe('Todos component', () => {
 
   it('should not add a new todo if title is empty', () => {
     const { getByText, getByPlaceholderText } = render(
-      <Todos userId={1} todos={mockTodos} setTodos={mockSetTodos} />
+      <Todos
+        userId={1}
+        todos={mockTodos}
+        setTodos={mockSetTodos}
+        completedCount={1}
+        setCompletedCount={mockSetCompltedCount}
+      />
     );
 
     fireEvent.change(getByPlaceholderText('Enter a new todo...'), {
