@@ -1,3 +1,66 @@
+/* Box sizing rule */
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+/* Margin and padding reset */
+html,
+body,
+div,
+span,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+img,
+ul,
+ol,
+li,
+blockquote,
+table,
+th,
+td,
+form,
+fieldset,
+legend,
+input,
+textarea,
+button {
+  margin: 0;
+  padding: 0;
+}
+
+/* Typography reset */
+html,
+body,
+button,
+input,
+textarea {
+  font-size: 16px;
+  font-family: sans-serif;
+  line-height: 1.5;
+}
+
+/* List reset */
+ul,
+ol {
+  list-style: none;
+}
+
+/* Link reset */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Variables */
+/* Styles */
 body {
   background-color: #000;
   color: #fff;
@@ -7,11 +70,8 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  height: 100vh;
-  margin: 50px 0 0 0;
-  font-family: 'Roboto', sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  margin: 60px 0 0 0;
+  font-family: 'Roboto', 'Helvetica Neue', sans-serif;
 }
 
 body .App {
@@ -22,14 +82,14 @@ body .App {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  min-height: 100vh;
-  width: 366px;
+  width: 480px;
+  margin-bottom: -40px;
 }
 
 body .main-content {
-  -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
+  -webkit-box-flex: 0;
+      -ms-flex-positive: 0;
+          flex-grow: 0;
 }
 
 body .main-content .header {
@@ -42,22 +102,45 @@ body .main-content .header {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  padding: 20px;
+  background-color: #333;
+  color: #fff;
 }
 
 body .main-content .header h2 span {
   color: green;
 }
 
+body .main-content .newTodoContainer {
+  margin-top: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #333;
+  min-height: 60px;
+  padding: 20px;
+}
+
 body .main-content button {
-  margin: 2px;
+  margin-left: 2px;
   padding: 5px;
   min-width: 80px;
 }
 
 body .main-content input {
   font-size: 100%;
-  height: 22px;
-  margin: 0 2px;
+  height: 40px;
+  margin: 0 0 0 2px;
 }
 
 body .main-content .line-through {
@@ -68,6 +151,9 @@ body .main-content ul {
   width: 100%;
   margin: 20px 0 0 0;
   padding: 0;
+  -webkit-box-flex: 0;
+      -ms-flex-positive: 0;
+          flex-grow: 0;
 }
 
 body .main-content ul li {
@@ -96,20 +182,18 @@ body .main-content ul li span {
           justify-content: right;
 }
 
-body .main-content ul li span:first-child {
-  -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
-  -webkit-box-pack: left;
-      -ms-flex-pack: left;
-          justify-content: left;
+body .Footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px;
+  background-color: #333;
+  color: #fff;
 }
 
-body .Footer {
-  -ms-flex-negative: 0;
-      flex-shrink: 0;
-  margin-top: auto;
-  padding: 100px 0;
+body .Footer a {
+  color: green;
 }
 
 body code {
