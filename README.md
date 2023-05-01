@@ -2,7 +2,7 @@
 
 ## Description
 
-<a href="https://bravotango.github.io/todoit/">![example image](/public/ToDoIt.png)</a><br/>
+<a target="_blank" href="https://bravotango.github.io/todoit/">![example image](/public/ToDoIt.png)</a><br/>
 
 📐 A ToDo application that allows user's to Add, Edit, Delete, Complete & Uncomplete Todos. This React application was bootstrapped with create-react-app & written with TypeScript & SCSS & includes Jest tests.
 

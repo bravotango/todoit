@@ -136,25 +136,27 @@ const Todos: React.FC<Props> = ({
 
   return (
     <React.Fragment>
-      <label>
-        New Todo:
-        <input
-          className='newTodo'
-          value={newTodoTitle}
-          onChange={(e) => setNewTodoTitle(e.target.value)}
-          onKeyUp={(e) => {
-            if (e.key === 'Enter' && newTodoTitle) {
-              setNewTodoObject({
-                id: uuidv4(),
-                userId: userId,
-                title: newTodoTitle,
-                completed: false,
-              });
-            }
-          }}
-        />
-      </label>
-      <button onClick={handleAddClick}>Add</button>
+      <span className='newTodoContainer'>
+        <label>
+          New Todo:
+          <input
+            className='newTodo'
+            value={newTodoTitle}
+            onChange={(e) => setNewTodoTitle(e.target.value)}
+            onKeyUp={(e) => {
+              if (e.key === 'Enter' && newTodoTitle) {
+                setNewTodoObject({
+                  id: uuidv4(),
+                  userId: userId,
+                  title: newTodoTitle,
+                  completed: false,
+                });
+              }
+            }}
+          />
+        </label>
+        <button onClick={handleAddClick}>Add</button>
+      </span>
       {displayTodos()}
     </React.Fragment>
   );
