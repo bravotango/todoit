@@ -9,6 +9,10 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
+    <style>
+      @import
+      url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+    </style>
     <App />
   </React.StrictMode>
 );
