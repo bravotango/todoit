@@ -75,7 +75,7 @@ body {
   .App {
     display: flex;
     flex-direction: column;
-    width: 480px;
+    max-width: 480px;
     margin-bottom: $spacer * -2;
   }
 

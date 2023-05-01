@@ -82,7 +82,7 @@ body .App {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  width: 480px;
+  max-width: 480px;
   margin-bottom: -40px;
 }
 
