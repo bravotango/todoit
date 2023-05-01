@@ -2,7 +2,8 @@
 
 ## Description
 
-![example image](/public/ToDoIt.png)
+![example image](/public/ToDoIt.png)<br/>
+
 📐 A ToDo application that allows user's to Add, Edit, Delete, Complete & Uncomplete Todos. This React application was bootstrapped with create-react-app & written with TypeScript & SCSS & includes Jest tests.
 
 ## Table of Contents
