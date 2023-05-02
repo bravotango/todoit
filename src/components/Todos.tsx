@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Todo } from '../types/Todo';
 import { v4 as uuidv4 } from 'uuid';
-import { createJSDocTemplateTag } from 'typescript';
 
 interface Props {
   userId: number;
   todos: Todo[];
   setTodos: React.Dispatch<React.SetStateAction<Todo[]>>;
-  completedCount: number;
   setCompletedCount: React.Dispatch<React.SetStateAction<number>>;
 }
 
@@ -15,7 +13,6 @@ const Todos: React.FC<Props> = ({
   userId,
   todos,
   setTodos,
-  completedCount,
   setCompletedCount,
 }) => {
   const [newTodoTitle, setNewTodoTitle] = useState<string>('');
@@ -86,6 +83,11 @@ const Todos: React.FC<Props> = ({
                   onChange={(e) => {
                     setEditTitle(e.target.value);
                   }}
+                  onKeyUp={(e) => {
+                    if (e.key === 'Enter' && editTitle) {
+                      handleSaveClick();
+                    }
+                  }}
                 />
                 <button onClick={() => handleSaveClick()}>Save</button>
               </React.Fragment>
@@ -96,7 +98,7 @@ const Todos: React.FC<Props> = ({
                   onClick={handleCompletedToggle(todo)}
                   className='clickable'
                 >
-                  {todo.completed ? '✔️' : '⬜'}
+                  <span>{todo.completed ? '✔️ ' : '⬜ '}</span>
                   {todo.completed ? (
                     <span className='line-through'>{todo.title}</span>
                   ) : (
@@ -138,7 +140,7 @@ const Todos: React.FC<Props> = ({
     <React.Fragment>
       <span className='newTodoContainer'>
         <label>
-          New Todo:
+          New Todo:{' '}
           <input
             className='newTodo'
             value={newTodoTitle}
