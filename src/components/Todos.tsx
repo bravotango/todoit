@@ -89,7 +89,9 @@ const Todos: React.FC<Props> = ({
                     }
                   }}
                 />
-                <button onClick={() => handleSaveClick()}>Save</button>
+                <button className='active' onClick={() => handleSaveClick()}>
+                  Save
+                </button>
               </React.Fragment>
             ) : (
               // we are displaying - each todo with edit & delete buttons
@@ -140,7 +142,7 @@ const Todos: React.FC<Props> = ({
     <React.Fragment>
       <span className='newTodoContainer'>
         <label>
-          New Todo:{' '}
+          <span>New Todo: </span>
           <input
             className='newTodo'
             value={newTodoTitle}
