@@ -17,7 +17,6 @@ fdescribe('Todos component', () => {
         userId={1}
         todos={mockTodos}
         setTodos={mockSetTodos}
-        completedCount={1}
         setCompletedCount={mockSetCompltedCount}
       />
     );
@@ -35,7 +34,6 @@ fdescribe('Todos component', () => {
         userId={1}
         todos={mockTodos}
         setTodos={mockSetTodos}
-        completedCount={1}
         setCompletedCount={mockSetCompltedCount}
       />
     );
@@ -64,7 +62,6 @@ fdescribe('Todos component', () => {
         userId={1}
         todos={mockTodos}
         setTodos={mockSetTodos}
-        completedCount={1}
         setCompletedCount={mockSetCompltedCount}
       />
     );

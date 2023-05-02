@@ -58,6 +58,7 @@ THEN I am presented with a updated list of todos with the deleted todo removed.
 
 - CATEGORIES - Create predefined lists: 'Camping checklist', 'Pack for yoga', 'Party set up'
 - LOGIN - Allow users to create an account and save data to DB
+- LOCALIZATION - Make all text displayed localized to the user's country
 
 ## Contributing
 

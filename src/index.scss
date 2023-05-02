@@ -60,12 +60,18 @@ a {
 }
 
 /* Variables */
-$spacer: 20px;
+$spacer: 18px;
+$spacerSmall: 2px;
+$colorText: #fff;
+$colorAccent: green;
+$colorDark: #000;
+$colorSoftDark: #333;
+$mobileWidth: 480px;
 
 /* Styles */
 body {
-  background-color: #000;
-  color: #fff;
+  background-color: $colorDark;
+  color: $colorText;
   display: flex;
   justify-content: center;
 
@@ -75,7 +81,7 @@ body {
   .App {
     display: flex;
     flex-direction: column;
-    width: 480px;
+    max-width: $mobileWidth;
     margin-bottom: $spacer * -2;
   }
 
@@ -90,8 +96,9 @@ body {
       right: 0;
       width: 100%;
       padding: $spacer;
-      background-color: #333;
+      background-color: $colorSoftDark;
       color: #fff;
+      border-bottom: 1px solid $colorAccent;
       h2 {
         span {
           color: green;
@@ -99,23 +106,27 @@ body {
       }
     }
     .newTodoContainer {
+      border-bottom: 1px solid $colorAccent;
       margin-top: $spacer * 2;
       display: flex;
       justify-content: space-between;
-      align-items: center;
-      background-color: #333;
+      align-items: flex-end;
+      background-color: $colorSoftDark;
       min-height: $spacer * 3;
       padding: $spacer;
     }
     button {
-      margin-left: 2px;
+      margin-left: $spacerSmall;
       padding: $spacer / 4;
       min-width: $spacer * 4;
+      height: $spacer * 2;
     }
     input {
       font-size: 100%;
       height: $spacer * 2;
-      margin: 0 0 0 2px;
+      margin: 0 0 0 $spacerSmall;
+      width: 100%;
+      padding: $spacerSmall * 4;
     }
 
     .line-through {
@@ -123,21 +134,23 @@ body {
     }
     ul {
       width: 100%;
-      margin: $spacer 0 0 0;
+      margin: $spacer 0 $spacer * 4 0;
       padding: 0;
       flex-grow: 0;
       li {
+        &:last-child {
+          border-bottom: 1px solid $colorAccent;
+        }
         list-style-type: none;
         display: flex;
         justify-content: space-between;
         align-items: center;
+        padding: $spacerSmall * 4;
+        border-top: 1px dashed $colorSoftDark;
         .clickable {
           cursor: pointer;
-        }
 
-        span {
-          display: flex;
-          justify-content: right;
+          flex-grow: 1;
         }
       }
     }
@@ -149,8 +162,9 @@ body {
     left: 0;
     width: 100%;
     padding: $spacer;
-    background-color: #333;
+    background-color: $colorSoftDark;
     color: #fff;
+    border-top: 1px solid $colorAccent;
     a {
       color: green;
     }
