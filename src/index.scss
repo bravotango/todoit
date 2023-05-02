@@ -108,6 +108,10 @@ body {
   }
   .main-content {
     margin-top: $spacer * 2;
+    width: $tabletWidth;
+    @media only screen and (max-width: $tabletWidth) {
+      width: $mobileWidth;
+    }
     button {
       margin-left: $spacerSmall;
       padding: $spacer / 4;
@@ -139,20 +143,14 @@ body {
       text-decoration: line-through;
     }
     ul {
-      width: $tabletWidth;
-      @media only screen and (max-width: $tabletWidth) {
-        width: $mobileWidth;
-      }
-
       margin: $spacer 0 $spacer * 4 0;
       padding: 0;
-      flex-grow: 0;
       li {
         list-style-type: none;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin: $spacerSmall * 4;
+        padding: $spacerSmall * 4;
         border-top: 1px dashed $colorSoftDark;
         .clickable {
           cursor: pointer;

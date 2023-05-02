@@ -2,7 +2,7 @@
 
 ## Description
 
-A todo application that allows user's to Add, Edit, Delete, Complete & Uncomplete todos. This React application was bootstrapped with create-react-app & written with TypeScript & SCSS & includes Jest tests.
+A todo application that allows user's to Add, Edit, Delete, Complete & Uncomplete todos. This React application was bootstrapped with create-react-app and written with TypeScript & SCSS.
 
 <a target="_blank" href="https://bravotango.github.io/todoit/">![example image](/public/ToDoIt.png)</a><br/>
 
@@ -12,11 +12,16 @@ Todos are an array of type Todo:
 
 <a target="_blank" href="https://bravotango.github.io/todoit/">![example image](/public/Todo.png)</a><br/>
 
+### Possible Future Enhancements
+
+- CATEGORIES - Create predefined lists: 'Camping checklist', 'Pack for yoga', 'Party set up'
+- LOGIN - Allow users to create an account and save data to database
+- LOCALIZATION - Make all text displayed localized for the user's country
+
 ## Table of Contents
 
 - [User Story](#user-story)
 - [Satisfied Acceptance Criteria](#satisfied-acceptance-criteria)
-- [Possible Future Enhancements](#possible-future-enhancemence)
 - [Contributing](#contributing)
 - [License](#license)
 - [Questions](#questions)
@@ -42,10 +47,10 @@ WHEN I add text to the 1 input present on the page and click 'Add'
 THEN I am presented with a formatted list displaying all the todo including the newly added todo
 
 WHEN I click on a todo that is not complete
-THEN I am presented with the todo crossed out, a green checkmark indicating complete, and the completed count is incremented
+THEN I am presented with the todo crossed out, a checkmark indicating complete, and the completed count is incremented
 
 WHEN I click on a todo that is complete
-THEN I am presented with the todo, a grey checkbox with no checkmark indicating not complete, and the completed count is decremented
+THEN I am presented with the todo, an unchecked checkbox preceding the todo indicating not complete, and the completed count is decremented
 
 WHEN I click 'Edit' next to a todo
 THEN I am presented with a formatted input with the value set to the todo.title, a 'Save' button that allows the updated the selected todo
@@ -53,12 +58,6 @@ THEN I am presented with a formatted input with the value set to the todo.title,
 WHEN I click 'Delete' next to a todo
 THEN I am presented with a updated list of todos with the deleted todo removed.
 ```
-
-## Possible Future Enhancements
-
-- CATEGORIES - Create predefined lists: 'Camping checklist', 'Pack for yoga', 'Party set up'
-- LOGIN - Allow users to create an account and save data to DB
-- LOCALIZATION - Make all text displayed localized to the user's country
 
 ## Contributing
 

@@ -118,6 +118,13 @@ body .header h2 span {
 
 body .main-content {
   margin-top: 36px;
+  width: 767px;
+}
+
+@media only screen and (max-width: 767px) {
+  body .main-content {
+    width: 389px;
+  }
 }
 
 body .main-content button {
@@ -161,18 +168,8 @@ body .main-content .line-through {
 }
 
 body .main-content ul {
-  width: 767px;
   margin: 18px 0 72px 0;
   padding: 0;
-  -webkit-box-flex: 0;
-      -ms-flex-positive: 0;
-          flex-grow: 0;
-}
-
-@media only screen and (max-width: 767px) {
-  body .main-content ul {
-    width: 389px;
-  }
 }
 
 body .main-content ul li {
@@ -186,7 +183,7 @@ body .main-content ul li {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin: 8px;
+  padding: 8px;
   border-top: 1px dashed #333;
 }
 
