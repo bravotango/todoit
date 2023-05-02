@@ -63,10 +63,12 @@ a {
 $spacer: 18px;
 $spacerSmall: 2px;
 $colorText: #fff;
-$colorAccent: green;
+$colorAccent: rgb(34, 255, 1);
+$colorPrimaryFocus: blue;
 $colorDark: #000;
 $colorSoftDark: #333;
-$mobileWidth: 480px;
+$mobileWidth: 389px;
+$tabletWidth: 767px;
 
 /* Styles */
 body {
@@ -74,52 +76,46 @@ body {
   color: $colorText;
   display: flex;
   justify-content: center;
-
-  margin: ($spacer * 3) 0 0 0;
+  overflow-y: scroll;
+  scrollbar-width: thin;
+  scrollbar-color: #999999 #f5f5f5;
   font-family: 'Roboto', 'Helvetica Neue', sans-serif;
 
   .App {
     display: flex;
     flex-direction: column;
-    max-width: $mobileWidth;
     margin-bottom: $spacer * -2;
   }
-
-  .main-content {
-    flex-grow: 0;
-    .header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: fixed;
-      top: 0;
-      right: 0;
-      width: 100%;
-      padding: $spacer;
-      background-color: $colorSoftDark;
-      color: #fff;
-      border-bottom: 1px solid $colorAccent;
-      h2 {
-        span {
-          color: green;
-        }
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    padding: $spacer;
+    background-color: $colorSoftDark;
+    color: #fff;
+    border-bottom: 1px solid $colorAccent;
+    h2 {
+      font-size: 90%;
+      span {
+        font-size: 160%;
+        color: $colorAccent;
       }
     }
-    .newTodoContainer {
-      border-bottom: 1px solid $colorAccent;
-      margin-top: $spacer * 2;
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      background-color: $colorSoftDark;
-      min-height: $spacer * 3;
-      padding: $spacer;
-    }
+  }
+  .main-content {
+    margin-top: $spacer * 2;
     button {
       margin-left: $spacerSmall;
       padding: $spacer / 4;
       min-width: $spacer * 4;
       height: $spacer * 2;
+      .active {
+        background-color: $colorPrimaryFocus;
+      }
     }
     input {
       font-size: 100%;
@@ -128,35 +124,46 @@ body {
       width: 100%;
       padding: $spacerSmall * 4;
     }
+    .newTodoContainer {
+      border-bottom: 1px solid $colorAccent;
+      margin-top: $spacer * 3;
+      display: flex;
+      justify-content: left;
+      align-items: flex-end;
+      background-color: $colorSoftDark;
+      min-height: $spacer * 3;
+      padding: $spacer;
+    }
 
     .line-through {
       text-decoration: line-through;
     }
     ul {
-      width: 100%;
+      width: $tabletWidth;
+      @media only screen and (max-width: $tabletWidth) {
+        width: $mobileWidth;
+      }
+
       margin: $spacer 0 $spacer * 4 0;
       padding: 0;
       flex-grow: 0;
       li {
-        &:last-child {
-          border-bottom: 1px solid $colorAccent;
-        }
         list-style-type: none;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: $spacerSmall * 4;
+        margin: $spacerSmall * 4;
         border-top: 1px dashed $colorSoftDark;
         .clickable {
           cursor: pointer;
-
+          max-width: 50%;
           flex-grow: 1;
         }
       }
     }
   }
 
-  .Footer {
+  .footer {
     position: fixed;
     bottom: 0;
     left: 0;
@@ -166,7 +173,7 @@ body {
     color: #fff;
     border-top: 1px solid $colorAccent;
     a {
-      color: green;
+      color: $colorAccent;
     }
   }
 
