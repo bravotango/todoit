@@ -6,6 +6,12 @@ A todo application that allows user's to Add, Edit, Delete, Complete & Uncomplet
 
 <a target="_blank" href="https://bravotango.github.io/todoit/">![example image](/public/ToDoIt.png)</a><br/>
 
+### Usability
+
+- Aria-labels added to 'Delete' and 'Edit' buttons
+- Clicking 'Enter' enabled on inputs
+- Responsive design for mobile & desktop viewing
+
 ### Todos
 
 Todos are an array of type Todo:

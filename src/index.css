@@ -101,10 +101,10 @@ body .header {
   top: 0;
   right: 0;
   width: 100%;
+  min-height: 36px;
   padding: 18px;
   background-color: #333;
   color: #fff;
-  border-bottom: 1px solid #22ff01;
 }
 
 body .header h2 {
@@ -128,7 +128,7 @@ body .main-content {
 }
 
 body .main-content button {
-  margin-left: 2px;
+  margin-left: 4px;
   padding: 4.5px;
   min-width: 72px;
   height: 36px;
@@ -147,14 +147,14 @@ body .main-content input {
 }
 
 body .main-content .newTodoContainer {
-  border-bottom: 1px solid #22ff01;
+  border: 1px solid #22ff01;
   margin-top: 54px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: left;
-      -ms-flex-pack: left;
-          justify-content: left;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;

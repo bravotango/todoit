@@ -94,10 +94,11 @@ body {
     top: 0;
     right: 0;
     width: 100%;
+    min-height: $spacer * 2;
     padding: $spacer;
     background-color: $colorSoftDark;
     color: #fff;
-    border-bottom: 1px solid $colorAccent;
+
     h2 {
       font-size: 90%;
       span {
@@ -113,7 +114,7 @@ body {
       width: $mobileWidth;
     }
     button {
-      margin-left: $spacerSmall;
+      margin-left: $spacerSmall * 2;
       padding: $spacer / 4;
       min-width: $spacer * 4;
       height: $spacer * 2;
@@ -129,10 +130,10 @@ body {
       padding: $spacerSmall * 4;
     }
     .newTodoContainer {
-      border-bottom: 1px solid $colorAccent;
+      border: 1px solid $colorAccent;
       margin-top: $spacer * 3;
       display: flex;
-      justify-content: left;
+      justify-content: center;
       align-items: flex-end;
       background-color: $colorSoftDark;
       min-height: $spacer * 3;
