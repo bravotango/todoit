@@ -5,6 +5,7 @@ import { v4 as uuidv4 } from 'uuid';
 interface Props {
   userId: number;
   todos: Todo[];
+  category: string;
   setTodos: React.Dispatch<React.SetStateAction<Todo[]>>;
   setCompletedCount: React.Dispatch<React.SetStateAction<number>>;
 }
@@ -12,6 +13,7 @@ interface Props {
 const Todos: React.FC<Props> = ({
   userId,
   todos,
+  category,
   setTodos,
   setCompletedCount,
 }) => {
@@ -24,6 +26,7 @@ const Todos: React.FC<Props> = ({
 
   useEffect(() => {
     if (newTodoObject) {
+      console.log('useEffect - newTodoObject');
       setTodos([...todos, newTodoObject]);
       setNewTodoObject(undefined);
       setNewTodoTitle('');
@@ -31,6 +34,7 @@ const Todos: React.FC<Props> = ({
   }, [newTodoObject, setTodos, todos]);
 
   useEffect(() => {
+    console.log('useEffect - setCompletedCount');
     // update completed task count every time the todos array changes
     setCompletedCount(todos.filter((todo) => todo.completed).length);
   }, [todos]);
@@ -55,6 +59,7 @@ const Todos: React.FC<Props> = ({
       userId: userId,
       title: newTodoTitle,
       completed: false,
+      category: category,
     }));
   };
 
@@ -73,65 +78,67 @@ const Todos: React.FC<Props> = ({
     htmlTodos.push(
       todos.map((todo: Todo, i: number) => {
         return (
-          <li key={i}>
-            {editIndex === i ? (
-              // we are editing - input with save button
-              <React.Fragment>
-                <input
-                  type='text'
-                  defaultValue={todo.title}
-                  onChange={(e) => {
-                    setEditTitle(e.target.value);
-                  }}
-                  onKeyUp={(e) => {
-                    if (e.key === 'Enter' && editTitle) {
-                      handleSaveClick();
-                    }
-                  }}
-                />
-                <button className='active' onClick={() => handleSaveClick()}>
-                  Save
-                </button>
-              </React.Fragment>
-            ) : (
-              // we are displaying - each todo with edit & delete buttons
-              <React.Fragment>
-                <span
-                  onClick={handleCompletedToggle(todo)}
-                  className='clickable'
-                >
-                  <span>{todo.completed ? '✔️ ' : '⬜ '}</span>
-                  {todo.completed ? (
-                    <span className='line-through'>{todo.title}</span>
-                  ) : (
-                    <span>{todo.title}</span>
-                  )}
-                </span>
+          todo.category === category && (
+            <li key={i}>
+              {editIndex === i ? (
+                // we are editing - input with save button
+                <React.Fragment>
+                  <input
+                    type='text'
+                    defaultValue={todo.title}
+                    onChange={(e) => {
+                      setEditTitle(e.target.value);
+                    }}
+                    onKeyUp={(e) => {
+                      if (e.key === 'Enter' && editTitle) {
+                        handleSaveClick();
+                      }
+                    }}
+                  />
+                  <button className='active' onClick={() => handleSaveClick()}>
+                    Save
+                  </button>
+                </React.Fragment>
+              ) : (
+                // we are displaying - each todo with edit & delete buttons
+                <React.Fragment>
+                  <span
+                    onClick={handleCompletedToggle(todo)}
+                    className='clickable'
+                  >
+                    <span>{todo.completed ? '✔️ ' : '⬜ '}</span>
+                    {todo.completed ? (
+                      <span className='line-through'>{todo.title}</span>
+                    ) : (
+                      <span>{todo.title}</span>
+                    )}
+                  </span>
 
-                <span className='buttons'>
-                  <button
-                    aria-label={`Delete ${todo.title}`}
-                    onClick={() => {
-                      const updatedTodos = [...todos];
-                      updatedTodos.splice(i, 1);
-                      setTodos(updatedTodos);
-                    }}
-                  >
-                    Delete
-                  </button>
-                  <button
-                    aria-label={`Edit ${todo.title}`}
-                    onClick={() => {
-                      setEditIndex(i);
-                      setEditTitle(todo.title);
-                    }}
-                  >
-                    Edit
-                  </button>
-                </span>
-              </React.Fragment>
-            )}
-          </li>
+                  <span className='buttons'>
+                    <button
+                      aria-label={`Delete ${todo.title}`}
+                      onClick={() => {
+                        const updatedTodos = [...todos];
+                        updatedTodos.splice(i, 1);
+                        setTodos(updatedTodos);
+                      }}
+                    >
+                      Delete
+                    </button>
+                    <button
+                      aria-label={`Edit ${todo.title}`}
+                      onClick={() => {
+                        setEditIndex(i);
+                        setEditTitle(todo.title);
+                      }}
+                    >
+                      Edit
+                    </button>
+                  </span>
+                </React.Fragment>
+              )}
+            </li>
+          )
         );
       })
     );
@@ -154,6 +161,7 @@ const Todos: React.FC<Props> = ({
                   userId: userId,
                   title: newTodoTitle,
                   completed: false,
+                  category: category,
                 });
               }
             }}

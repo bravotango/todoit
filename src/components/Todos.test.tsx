@@ -4,20 +4,39 @@ import Todos from './Todos';
 
 fdescribe('Todos component', () => {
   const mockTodos = [
-    { id: '1', userId: 1, title: 'Test Todo 1', completed: false },
-    { id: '2', userId: 1, title: 'Test Todo 2', completed: true },
-    { id: '3', userId: 1, title: 'Test Todo 3', completed: false },
+    {
+      id: '1',
+      userId: 1,
+      title: 'Test Todo 1',
+      completed: false,
+      category: 'test',
+    },
+    {
+      id: '2',
+      userId: 1,
+      title: 'Test Todo 2',
+      completed: true,
+      category: 'test',
+    },
+    {
+      id: '3',
+      userId: 1,
+      title: 'Test Todo 3',
+      completed: false,
+      category: 'test',
+    },
   ];
   const mockSetTodos = jest.fn();
-  const mockSetCompltedCount = jest.fn();
+  const mockSetCompletedCount = jest.fn();
 
   it('should render the component with initial state', () => {
     const { getByText } = render(
       <Todos
         userId={1}
         todos={mockTodos}
+        category='mock'
         setTodos={mockSetTodos}
-        setCompletedCount={mockSetCompltedCount}
+        setCompletedCount={mockSetCompletedCount}
       />
     );
 
@@ -33,8 +52,9 @@ fdescribe('Todos component', () => {
       <Todos
         userId={1}
         todos={mockTodos}
+        category='mock'
         setTodos={mockSetTodos}
-        setCompletedCount={mockSetCompltedCount}
+        setCompletedCount={mockSetCompletedCount}
       />
     );
 
@@ -61,8 +81,9 @@ fdescribe('Todos component', () => {
       <Todos
         userId={1}
         todos={mockTodos}
+        category='mock'
         setTodos={mockSetTodos}
-        setCompletedCount={mockSetCompltedCount}
+        setCompletedCount={mockSetCompletedCount}
       />
     );
 

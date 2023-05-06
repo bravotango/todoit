@@ -1,67 +1,58 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Todos from './components/Todos';
 import { Todo } from './types/Todo';
-import { CompletedStates } from './enums/CompletedStates';
-import { v4 as uuidv4 } from 'uuid';
 import Footer from './components/Footer';
-import React from 'react';
+import Header from './components/Header';
+import Categories from './components/Categories';
 
 const App = () => {
+  const loadedTodos: Todo[] = localStorage.getItem('todos')
+    ? JSON.parse(localStorage.getItem('todos')!)
+    : []; // new
+
   const [userId, setUserId] = useState<number>(1);
-  const initTodos: Todo[] = [
-    {
-      id: uuidv4(),
-      userId: userId,
-      title: 'Brew morning coffee',
-      completed: false,
-    },
-    { id: uuidv4(), userId: userId, title: 'Feed cat & dog', completed: false },
-    { id: uuidv4(), userId: userId, title: 'Start coding', completed: false },
-  ];
-  const [todos, setTodos] = useState(initTodos);
+  const [todos, setTodos] = useState<Todo[]>(loadedTodos);
+  const [category, setCategory] = useState<string>('');
+  const [categories, setCategories] = useState<string[]>(
+    Array.from(new Set(todos.map((todo) => todo.category))).sort((a, b) => {
+      return a.localeCompare(b);
+    })
+  );
   const [completedCount, setCompletedCount] = useState<number>(0);
 
-  const displayCompleted = (): JSX.Element => {
-    const htmlCompleted: JSX.Element = (
-      <span>
-        {completedCount}/{todos.length}
-      </span>
-    );
-
-    const htmlLabel = (): JSX.Element => {
-      let completedPercent: number =
-        todos.length === 0 ? 0 : completedCount / todos.length;
-      switch (completedPercent) {
-        case 0:
-          return <>{CompletedStates.StartTodos}: </>;
-        case 1:
-          return <>{CompletedStates.TodosDone}! </>;
-        default:
-          return <>{CompletedStates.TodosInProgress}: </>;
-      }
-    };
-
-    return (
-      <React.Fragment>
-        {htmlLabel()}
-        {htmlCompleted}
-      </React.Fragment>
-    );
-  };
+  // Save todos to local storage whenever the todos state changes
+  useEffect(() => {
+    localStorage.setItem('todos', JSON.stringify(todos));
+  }, [todos]);
 
   return (
     <div className='App'>
-      <span className='header'>
-        <h1>ToDoIt</h1>
-        <h2>{displayCompleted()}</h2>
-      </span>
+      <Header
+        completedCount={completedCount}
+        todos={todos}
+        category={category}
+      />
       <div className='main-content'>
-        <Todos
-          todos={todos}
-          setTodos={setTodos}
-          userId={userId}
-          setCompletedCount={setCompletedCount}
-        />
+        <span>
+          <Categories
+            todos={todos}
+            categories={categories}
+            setCategories={setCategories}
+            category={category}
+            setCategory={setCategory}
+          />
+        </span>
+        <span>
+          {category && (
+            <Todos
+              todos={todos}
+              setTodos={setTodos}
+              userId={userId}
+              setCompletedCount={setCompletedCount}
+              category={category}
+            />
+          )}
+        </span>
       </div>
       <Footer />
     </div>

@@ -101,17 +101,28 @@ body {
 
     h2 {
       font-size: 90%;
+      font-weight: lighter;
       span {
-        font-size: 160%;
+        font-size: 110%;
         color: $colorAccent;
       }
     }
   }
   .main-content {
-    margin-top: $spacer * 2;
+    justify-content: space-between;
+    position: relative;
+    align-items: flex-start;
+    top: $spacer * 5;
+    display: flex;
+    flex-direction: row;
+
     width: $tabletWidth;
     @media only screen and (max-width: $tabletWidth) {
       width: $mobileWidth;
+      flex-direction: column;
+    }
+    label {
+      display: block;
     }
     button {
       margin-left: $spacerSmall * 2;
@@ -122,16 +133,21 @@ body {
         background-color: $colorPrimaryFocus;
       }
     }
-    input {
+    input,
+    select {
+      font-family: 'Roboto';
+      color: $colorSoftDark;
       font-size: 100%;
-      height: $spacer * 2;
-      margin: 0 0 0 $spacerSmall;
       width: 100%;
-      padding: $spacerSmall * 4;
+      height: $spacer * 2;
+      option {
+        color: $colorSoftDark;
+        font-size: 100%;
+      }
     }
     .newTodoContainer {
       border: 1px solid $colorAccent;
-      margin-top: $spacer * 3;
+      margin: 0;
       display: flex;
       justify-content: center;
       align-items: flex-end;
@@ -144,7 +160,7 @@ body {
       text-decoration: line-through;
     }
     ul {
-      margin: $spacer 0 $spacer * 4 0;
+      margin: 0 0 0 spacer;
       padding: 0;
       li {
         list-style-type: none;
