@@ -20,7 +20,6 @@ const Categories: React.FC<props> = ({
   const [newCategory, setNewCategory] = useState('');
 
   useEffect(() => {
-    console.log('sorting');
     const updatedCategories = [...categories, category];
     setCategories(
       Array.from(new Set(updatedCategories.map((c) => c))).sort((a, b) => {

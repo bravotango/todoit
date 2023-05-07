@@ -60,8 +60,9 @@ a {
 }
 
 /* Variables */
-$spacer: 18px;
+$spacer: 16px;
 $spacerSmall: 2px;
+$formElementHeight: 32px;
 $colorText: #fff;
 $colorAccent: rgb(34, 255, 1);
 $colorPrimaryFocus: blue;
@@ -85,121 +86,141 @@ body {
   .App {
     display: flex;
     flex-direction: column;
-    margin-bottom: $spacer * -2;
-  }
-  .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 100%;
-    min-height: $spacer * 2;
-    padding: $spacer;
-    background-color: $colorSoftDark;
-    color: #fff;
+    $formElementHeight: 40px;
 
-    h2 {
-      font-size: 90%;
-      font-weight: lighter;
-      span {
-        font-size: 110%;
+    form {
+      input[type='text'],
+      input[type='email'],
+      input[type='password'],
+      select,
+      textarea {
+        height: $formElementHeight;
+      }
+    }
+
+    .header {
+      z-index: 1;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 100%;
+      min-height: $spacer * 2;
+      padding: $spacer;
+      background-color: $colorSoftDark;
+      color: #fff;
+      border-bottom: : 1px solid $colorAccent;
+      @media only screen and (max-width: $tabletWidth) and (orientation: landscape) {
+        .header {
+          min-height: $spacer;
+
+          font-size: 90%;
+        }
+      }
+
+      h2 {
+        font-size: 90%;
+        font-weight: lighter;
+        span {
+          font-size: 110%;
+          color: $colorAccent;
+        }
+      }
+    }
+    .main-content {
+      z-index: 0;
+      justify-content: space-between;
+      position: relative;
+      align-items: flex-start;
+      top: $spacer * 5;
+      display: flex;
+      flex-direction: row;
+      padding: $spacer;
+      width: $tabletWidth;
+      margin-bottom: $spacer * 4;
+      @media only screen and (max-width: $tabletWidth) {
+        width: $mobileWidth;
+        flex-direction: column;
+      }
+      label {
+        display: block;
+      }
+      button {
+        cursor: pointer;
+        font-family: 'Roboto';
+
+        padding: $spacerSmall;
+        min-width: $spacer * 4;
+        .active {
+          background-color: $colorPrimaryFocus;
+        }
+      }
+      input,
+      select {
+        font-family: 'Roboto';
+        color: $colorSoftDark;
+        font-size: 100%;
+        width: 100%;
+        padding: $spacerSmall;
+        option {
+          &.add {
+            background-color: $colorSoftDark;
+            color: #fff;
+          }
+        }
+      }
+      .formContainer {
+        margin: 0 0 $spacerSmall 0;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        background-color: $colorSoftDark;
+        min-height: $spacer * 3;
+        padding: $spacer;
+        width: 100%;
+      }
+
+      .line-through {
+        text-decoration: line-through;
+      }
+      ul {
+        margin: 0 0 0 spacer;
+        padding: 0;
+        li {
+          list-style-type: none;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: $spacerSmall;
+          border-top: 1px dashed $colorSoftDark;
+          .clickable {
+            cursor: pointer;
+            max-width: 50%;
+            flex-grow: 1;
+          }
+        }
+      }
+    }
+
+    .footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: $spacer;
+      background-color: $colorSoftDark;
+      color: #fff;
+      border-top: 1px solid $colorAccent;
+      a {
         color: $colorAccent;
       }
     }
-  }
-  .main-content {
-    justify-content: space-between;
-    position: relative;
-    align-items: flex-start;
-    top: $spacer * 5;
-    display: flex;
-    flex-direction: row;
 
-    width: $tabletWidth;
-    @media only screen and (max-width: $tabletWidth) {
-      width: $mobileWidth;
-      flex-direction: column;
+    code {
+      font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+        monospace;
     }
-    label {
-      display: block;
-    }
-    button {
-      cursor: pointer;
-      font-family: 'Roboto';
-      font-size: 80%;
-      padding: $spacerSmall;
-      min-width: $spacer * 4;
-      height: $spacer * 1.75;
-      .active {
-        background-color: $colorPrimaryFocus;
-      }
-    }
-    input,
-    select {
-      font-family: 'Roboto';
-      color: $colorSoftDark;
-      font-size: 100%;
-      width: 100%;
-
-      padding: $spacerSmall;
-      option {
-        &.add {
-          background-color: $colorSoftDark;
-          color: #fff;
-        }
-      }
-    }
-    .formContainer {
-      border: 1px solid $colorAccent;
-      margin: 0 0 $spacerSmall 0;
-      display: flex;
-      justify-content: center;
-      align-items: flex-end;
-      background-color: $colorSoftDark;
-      min-height: $spacer * 3;
-      padding: $spacer;
-    }
-
-    .line-through {
-      text-decoration: line-through;
-    }
-    ul {
-      margin: 0 0 0 spacer;
-      padding: 0;
-      li {
-        list-style-type: none;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: $spacerSmall;
-        border-top: 1px dashed $colorSoftDark;
-        .clickable {
-          cursor: pointer;
-          max-width: 50%;
-          flex-grow: 1;
-        }
-      }
-    }
-  }
-
-  .footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: $spacer;
-    background-color: $colorSoftDark;
-    color: #fff;
-    border-top: 1px solid $colorAccent;
-    a {
-      color: $colorAccent;
-    }
-  }
-
-  code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-      monospace;
   }
 }
