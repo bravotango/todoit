@@ -39,6 +39,7 @@ const Categories: React.FC<props> = ({
     if (e.target.value === 'new') {
       setAddingCategory(true);
       setNewCategory('');
+      setCategory('');
     } else {
       setCategory(e.target.value);
       setNewCategory('');
@@ -69,8 +70,6 @@ const Categories: React.FC<props> = ({
 
     htmlOptionCategories.push(
       <React.Fragment>
-        <hr />
-
         <option key={htmlOptionCategories.length} value='new' className='add'>
           + Add new category
         </option>
@@ -84,7 +83,7 @@ const Categories: React.FC<props> = ({
     );
   };
   return (
-    <span className='newTodoContainer'>
+    <span className='formContainer'>
       {!addingCategory && (
         <label>
           <span>Category:</span>
@@ -93,7 +92,7 @@ const Categories: React.FC<props> = ({
       )}
 
       {addingCategory && (
-        <span className='newTodoContainer'>
+        <span>
           <label>
             <span>New category:</span>
             <input

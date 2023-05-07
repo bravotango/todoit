@@ -69,6 +69,7 @@ $colorDark: #000;
 $colorSoftDark: #333;
 $mobileWidth: 389px;
 $tabletWidth: 767px;
+$linkColor: rgb(0, 81, 255);
 
 /* Styles */
 body {
@@ -125,10 +126,12 @@ body {
       display: block;
     }
     button {
-      margin-left: $spacerSmall * 2;
-      padding: $spacer / 4;
+      cursor: pointer;
+      font-family: 'Roboto';
+      font-size: 80%;
+      padding: $spacerSmall;
       min-width: $spacer * 4;
-      height: $spacer * 2;
+      height: $spacer * 1.75;
       .active {
         background-color: $colorPrimaryFocus;
       }
@@ -139,15 +142,18 @@ body {
       color: $colorSoftDark;
       font-size: 100%;
       width: 100%;
-      height: $spacer * 2;
+
+      padding: $spacerSmall;
       option {
-        color: $colorSoftDark;
-        font-size: 100%;
+        &.add {
+          background-color: $colorSoftDark;
+          color: #fff;
+        }
       }
     }
-    .newTodoContainer {
+    .formContainer {
       border: 1px solid $colorAccent;
-      margin: 0;
+      margin: 0 0 $spacerSmall 0;
       display: flex;
       justify-content: center;
       align-items: flex-end;
@@ -167,7 +173,7 @@ body {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: $spacerSmall * 4;
+        padding: $spacerSmall;
         border-top: 1px dashed $colorSoftDark;
         .clickable {
           cursor: pointer;

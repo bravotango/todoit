@@ -26,7 +26,6 @@ const Todos: React.FC<Props> = ({
 
   useEffect(() => {
     if (newTodoObject) {
-      console.log('useEffect - newTodoObject');
       setTodos([...todos, newTodoObject]);
       setNewTodoObject(undefined);
       setNewTodoTitle('');
@@ -34,7 +33,6 @@ const Todos: React.FC<Props> = ({
   }, [newTodoObject, setTodos, todos]);
 
   useEffect(() => {
-    console.log('useEffect - setCompletedCount');
     // update completed task count every time the todos array changes
     setCompletedCount(todos.filter((todo) => todo.completed).length);
   }, [todos]);
@@ -147,7 +145,7 @@ const Todos: React.FC<Props> = ({
 
   return (
     <React.Fragment>
-      <span className='newTodoContainer'>
+      <span className='formContainer'>
         <label>
           <span>New Todo: </span>
           <input

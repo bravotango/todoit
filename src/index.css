@@ -151,10 +151,12 @@ body .main-content label {
 }
 
 body .main-content button {
-  margin-left: 4px;
-  padding: 4.5px;
+  cursor: pointer;
+  font-family: 'Roboto';
+  font-size: 80%;
+  padding: 2px;
   min-width: 72px;
-  height: 36px;
+  height: 31.5px;
 }
 
 body .main-content button .active {
@@ -167,18 +169,18 @@ body .main-content select {
   color: #333;
   font-size: 100%;
   width: 100%;
-  height: 36px;
+  padding: 2px;
 }
 
-body .main-content input option,
-body .main-content select option {
-  color: #333;
-  font-size: 100%;
+body .main-content input option.add,
+body .main-content select option.add {
+  background-color: #333;
+  color: #fff;
 }
 
-body .main-content .newTodoContainer {
+body .main-content .formContainer {
   border: 1px solid #22ff01;
-  margin: 0;
+  margin: 0 0 2px 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -213,7 +215,7 @@ body .main-content ul li {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 8px;
+  padding: 2px;
   border-top: 1px dashed #333;
 }
 
