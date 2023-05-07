@@ -84,10 +84,18 @@ body .App {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin-bottom: -36px;
 }
 
-body .header {
+body .App form input[type='text'],
+body .App form input[type='email'],
+body .App form input[type='password'],
+body .App form select,
+body .App form textarea {
+  height: 40px;
+}
+
+body .App .header {
+  z-index: 1;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -101,54 +109,93 @@ body .header {
   top: 0;
   right: 0;
   width: 100%;
-  min-height: 36px;
-  padding: 18px;
+  min-height: 32px;
+  padding: 16px;
   background-color: #333;
   color: #fff;
 }
 
-body .header h2 {
-  font-size: 90%;
-}
-
-body .header h2 span {
-  font-size: 160%;
-  color: #22ff01;
-}
-
-body .main-content {
-  margin-top: 36px;
-  width: 767px;
-}
-
-@media only screen and (max-width: 767px) {
-  body .main-content {
-    width: 389px;
+@media only screen and (max-width: 767px) and (orientation: landscape) {
+  body .App .header .header {
+    min-height: 16px;
+    font-size: 90%;
   }
 }
 
-body .main-content button {
-  margin-left: 4px;
-  padding: 4.5px;
-  min-width: 72px;
-  height: 36px;
+body .App .header h2 {
+  font-size: 90%;
+  font-weight: lighter;
 }
 
-body .main-content button .active {
+body .App .header h2 span {
+  font-size: 110%;
+  color: #22ff01;
+}
+
+body .App .main-content {
+  z-index: 0;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  position: relative;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  top: 80px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  padding: 16px;
+  width: 767px;
+  margin-bottom: 64px;
+}
+
+@media only screen and (max-width: 767px) {
+  body .App .main-content {
+    width: 389px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+body .App .main-content label {
+  display: block;
+}
+
+body .App .main-content button {
+  cursor: pointer;
+  font-family: 'Roboto';
+  padding: 2px;
+  min-width: 64px;
+}
+
+body .App .main-content button .active {
   background-color: blue;
 }
 
-body .main-content input {
+body .App .main-content input,
+body .App .main-content select {
+  font-family: 'Roboto';
+  color: #333;
   font-size: 100%;
-  height: 36px;
-  margin: 0 0 0 2px;
   width: 100%;
-  padding: 8px;
+  padding: 2px;
 }
 
-body .main-content .newTodoContainer {
-  border: 1px solid #22ff01;
-  margin-top: 54px;
+body .App .main-content input option.add,
+body .App .main-content select option.add {
+  background-color: #333;
+  color: #fff;
+}
+
+body .App .main-content .formContainer {
+  margin: 0 0 2px 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -159,20 +206,21 @@ body .main-content .newTodoContainer {
       -ms-flex-align: end;
           align-items: flex-end;
   background-color: #333;
-  min-height: 54px;
-  padding: 18px;
+  min-height: 48px;
+  padding: 16px;
+  width: 100%;
 }
 
-body .main-content .line-through {
+body .App .main-content .line-through {
   text-decoration: line-through;
 }
 
-body .main-content ul {
-  margin: 18px 0 72px 0;
+body .App .main-content ul {
+  margin: 0 0 0 spacer;
   padding: 0;
 }
 
-body .main-content ul li {
+body .App .main-content ul li {
   list-style-type: none;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -183,11 +231,11 @@ body .main-content ul li {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 8px;
+  padding: 2px;
   border-top: 1px dashed #333;
 }
 
-body .main-content ul li .clickable {
+body .App .main-content ul li .clickable {
   cursor: pointer;
   max-width: 50%;
   -webkit-box-flex: 1;
@@ -195,22 +243,22 @@ body .main-content ul li .clickable {
           flex-grow: 1;
 }
 
-body .footer {
+body .App .footer {
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
-  padding: 18px;
+  padding: 16px;
   background-color: #333;
   color: #fff;
   border-top: 1px solid #22ff01;
 }
 
-body .footer a {
+body .App .footer a {
   color: #22ff01;
 }
 
-body code {
+body .App code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 /*# sourceMappingURL=index.css.map */
