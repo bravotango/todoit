@@ -113,6 +113,7 @@ body .App .header {
   padding: 16px;
   background-color: #333;
   color: #fff;
+  border-bottom: 1px solid #22ff01;
 }
 
 @media only screen and (max-width: 767px) and (orientation: landscape) {
@@ -232,15 +233,24 @@ body .App .main-content ul li {
       -ms-flex-align: center;
           align-items: center;
   padding: 2px;
-  border-top: 1px dashed #333;
+  border-bottom: 1px dashed #333;
+}
+
+body .App .main-content ul li .buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 body .App .main-content ul li .clickable {
   cursor: pointer;
-  max-width: 50%;
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
+}
+
+body .App .main-content ul li:last-child {
+  border-bottom: 0;
 }
 
 body .App .footer {
@@ -259,6 +269,6 @@ body .App .footer a {
 }
 
 body .App code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 /*# sourceMappingURL=index.css.map */
