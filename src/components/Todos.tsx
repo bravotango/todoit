@@ -93,9 +93,24 @@ const Todos: React.FC<Props> = ({
                       }
                     }}
                   />
-                  <button className='active' onClick={() => handleSaveClick()}>
-                    Save
-                  </button>
+                  <span className='buttons'>
+                    <button
+                      aria-label={`Delete ${todo.title}`}
+                      onClick={() => {
+                        const updatedTodos = [...todos];
+                        updatedTodos.splice(i, 1);
+                        setTodos(updatedTodos);
+                      }}
+                    >
+                      Delete
+                    </button>
+                    <button
+                      className='active'
+                      onClick={() => handleSaveClick()}
+                    >
+                      Save
+                    </button>
+                  </span>
                 </React.Fragment>
               ) : (
                 // we are displaying - each todo with edit & delete buttons
@@ -113,16 +128,6 @@ const Todos: React.FC<Props> = ({
                   </span>
 
                   <span className='buttons'>
-                    <button
-                      aria-label={`Delete ${todo.title}`}
-                      onClick={() => {
-                        const updatedTodos = [...todos];
-                        updatedTodos.splice(i, 1);
-                        setTodos(updatedTodos);
-                      }}
-                    >
-                      Delete
-                    </button>
                     <button
                       aria-label={`Edit ${todo.title}`}
                       onClick={() => {

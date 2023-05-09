@@ -111,7 +111,7 @@ body {
       padding: $spacer;
       background-color: $colorSoftDark;
       color: #fff;
-      border-bottom: : 1px solid $colorAccent;
+      border-bottom: 1px solid $colorAccent;
       @media only screen and (max-width: $tabletWidth) and (orientation: landscape) {
         .header {
           min-height: $spacer;
@@ -194,11 +194,16 @@ body {
           justify-content: space-between;
           align-items: center;
           padding: $spacerSmall;
-          border-top: 1px dashed $colorSoftDark;
+          border-bottom: 1px dashed $colorSoftDark;
+          .buttons {
+            display: flex;
+          }
           .clickable {
             cursor: pointer;
-            max-width: 50%;
             flex-grow: 1;
+          }
+          &:last-child {
+            border-bottom: 0;
           }
         }
       }
