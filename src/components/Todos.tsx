@@ -100,6 +100,7 @@ const Todos: React.FC<Props> = ({
                         const updatedTodos = [...todos];
                         updatedTodos.splice(i, 1);
                         setTodos(updatedTodos);
+                        setEditIndex(undefined);
                       }}
                     >
                       Delete
