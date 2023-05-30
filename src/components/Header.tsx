@@ -9,31 +9,35 @@ interface Props {
 }
 
 const Header: React.FC<Props> = ({ completedCount, todos, category }) => {
+  let completedCountForCategory = 0;
+  let totalCountForCategory = 0;
+  const htmlLabel = (cat: string): JSX.Element => {
+    let completedPercent: number =
+      todos.length === 0 ? 0 : completedCount / todos.length;
+
+    if (!!cat) {
+      completedPercent = completedCountForCategory / totalCountForCategory;
+    }
+    const prefix = cat ? category + ' ' : '';
+    switch (completedPercent) {
+      case 0:
+        return <>{prefix + CompletedStates.StartTodos}: </>;
+      case 1:
+        return <>{prefix + CompletedStates.TodosDone}! </>;
+      default:
+        return <>{prefix + CompletedStates.TodosInProgress}: </>;
+    }
+  };
+
   const displayCompleted = (): JSX.Element => {
-    let categoryNumerator = 0;
-    let categoryDenominator = 0;
     todos.map((todo) => {
       if (todo.category === category) {
-        categoryDenominator++;
+        totalCountForCategory++;
         if (todo.completed) {
-          categoryNumerator++;
+          completedCountForCategory++;
         }
       }
     });
-
-    const htmlLabel = (cat: string): JSX.Element => {
-      let completedPercent: number =
-        todos.length === 0 ? 0 : completedCount / todos.length;
-      const prefix = cat ? category + ' ' : '';
-      switch (completedPercent) {
-        case 0:
-          return <>{prefix + CompletedStates.StartTodos}: </>;
-        case 1:
-          return <>{prefix + CompletedStates.TodosDone}! </>;
-        default:
-          return <>{prefix + CompletedStates.TodosInProgress}: </>;
-      }
-    };
 
     const htmlCompleted: JSX.Element = (
       <>
@@ -44,7 +48,7 @@ const Header: React.FC<Props> = ({ completedCount, todos, category }) => {
         <br />
         {htmlLabel('cat')}
         <span>
-          {categoryNumerator}/{categoryDenominator}
+          {completedCountForCategory}/{totalCountForCategory}
         </span>
       </>
     );

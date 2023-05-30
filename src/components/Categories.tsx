@@ -68,11 +68,9 @@ const Categories: React.FC<props> = ({
     );
 
     htmlOptionCategories.push(
-      <React.Fragment>
-        <option key={htmlOptionCategories.length} value='new' className='add'>
-          + Add new category
-        </option>
-      </React.Fragment>
+      <option key={htmlOptionCategories.length} value='new' className='add'>
+        + Add new category
+      </option>
     );
 
     return (
