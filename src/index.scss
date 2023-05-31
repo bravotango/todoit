@@ -139,7 +139,7 @@ body {
       flex-direction: row;
       padding: $spacer;
       width: $tabletWidth;
-      margin-bottom: $spacer * 4;
+      margin-bottom: $spacer * 10;
       @media only screen and (max-width: $tabletWidth) {
         width: $mobileWidth;
         flex-direction: column;
