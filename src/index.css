@@ -152,7 +152,7 @@ body .App .main-content {
           flex-direction: row;
   padding: 16px;
   width: 767px;
-  margin-bottom: 64px;
+  margin-bottom: 160px;
 }
 
 @media only screen and (max-width: 767px) {
