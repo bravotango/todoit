@@ -58,7 +58,7 @@ const Header: React.FC<Props> = ({ completedCount, todos, category }) => {
 
   return (
     <span className='header'>
-      <h1>ToDoIt</h1>
+      <h1>TodoIt</h1>
       <h2>{displayCompleted()}</h2>
     </span>
   );
