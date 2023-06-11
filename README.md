@@ -22,6 +22,7 @@ The `Todo` array is an array of type `Todo`:
 
 - LOGIN: Allow users to create an account and save data to a database.
 - LOCALIZATION: Make all displayed text localized for users in their respective countries.
+- ACCENT COLOR CHANGER: Allow users to have a profile that saves their desired accent color
 
 ## Table of Contents
 
