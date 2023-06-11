@@ -2,7 +2,7 @@
 
 ## Description
 
-A todo application that allows user's to Add, Edit, Delete, Complete & Un-complete a todo. User's are able to create infinite number of categories & add as many todos under each category. This React application is bootstrapped with create-react-app and written with TypeScript & SCSS. This application leverages local storage to save your todo list to your device; by doing this, no login is required.
+A todo application that allows user's to add, edit, delete, complete and undo complete a todo. Users are able to create categories then add todo items. This React application is bootstrapped with create-react-app and written with TypeScript & SCSS. This application leverages local storage to save your todo lists to your device; by doing this, no login is required.
 
 <a target="_blank" href="https://bravotango.github.io/todoit/">![example image](/public/ToDoIt.png)</a><br/>
 
